@@ -2,9 +2,24 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-var DB = mongoose.connect('mongodb+srv://zero:<zero>@cluster0.nu0uy.mongodb.net/zero?retryWrites=true&w=majority').then(() => {
-console.log('connection to DB successful');
-}).catch((err) => console.log('no connection to DB'));
+// var DB = mongoose.connect('mongodb+srv://zero:<zero>@cluster0.nu0uy.mongodb.net/zero?retryWrites=true&w=majority').then(() => {
+// console.log('connection to DB successful');
+// }).catch((err) => console.log('no connection to DB'));
+
+mongoose
+  .connect(
+    "mongodb+srv://zero:zero@cluster0.nu0uy.mongodb.net/zero?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+    }
+  )
+  .then(() => {
+    console.log("connected to the database!!");
+  })
+  .catch((error) => {
+    console.log("error!!");
+  });
+
 
 
 // // }).catch((err) => console.log('no connection to DB'));
